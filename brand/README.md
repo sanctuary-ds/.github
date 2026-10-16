@@ -10,7 +10,7 @@ The mark of Sanctuary is a rose window: the window at the heart of a Gothic nave
 
 ## Colors
 
-Every color comes from the [Sanctuary palette](https://github.com/sanctuary-ds/sanctuary), never picked by hand:
+Every color comes from the [Sanctuary palette](https://github.com/sanctuary-ds/tokens), never picked by hand:
 
 - Stone: the Vespers flavor (`surface`, `surface-raised-3`, `lead-came`).
 - Glass: the Vespers accent, amber, in its pane, glass and lume roles.

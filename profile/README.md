@@ -13,4 +13,4 @@ Sanctuary takes its language from a Gothic nave: stone that stays quiet, lead th
 - **Three glazings** for how the accent sits on a surface: pot-metal, flashed and grisaille.
 - **OKLCH** color and **DTCG** tokens, with contrast pairings that are tested, not assumed.
 
-A Lit component library and per-application ports for Linux desktops are planned; the [ecosystem map](https://github.com/sanctuary-ds/sanctuary/blob/main/docs/ecosystem.md) tracks what exists and what comes next.
+Sanctuary Web Components (a Lit library) and per-application ports for Linux desktops are planned; the [ecosystem map](https://github.com/sanctuary-ds/tokens/blob/main/docs/ecosystem.md) tracks what exists and what comes next.

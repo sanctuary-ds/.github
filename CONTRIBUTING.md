@@ -6,7 +6,7 @@ Thank you for your interest. Sanctuary is young and maintained by one person, so
 
 - For anything beyond a typo, open an issue first and describe what you want to change and why. It saves you from work that might not fit the design.
 - Read the repository's `README.md`, and its `ROADMAP.md` when there is one.
-- Colors, contrast and token names are defined in the [core](https://github.com/sanctuary-ds/sanctuary). Other repositories consume them; they do not redefine them. A missing token is requested in the core.
+- Colors, contrast and token names are defined in the [core](https://github.com/sanctuary-ds/tokens). Other repositories consume them; they do not redefine them. A missing token is requested in the core.
 
 ## Setup
 
