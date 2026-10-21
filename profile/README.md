@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/sanctuary-ds/.github/main/brand/rose-amber.png" alt="The Sanctuary rose window" width="160">
+  <img src="https://raw.githubusercontent.com/sanctuary-ds/.github/main/brand/rose-spectrum-transparent.png" alt="The Sanctuary rose window" width="160">
 </p>
 
 <h1 align="center">Sanctuary</h1>
