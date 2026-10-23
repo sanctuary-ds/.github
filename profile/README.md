@@ -14,3 +14,5 @@ Sanctuary takes its language from a Gothic nave: stone that stays quiet, lead th
 - **OKLCH** color and **DTCG** tokens, with contrast pairings that are tested, not assumed.
 
 Sanctuary Web Components (a Lit library) and per-application ports for Linux desktops are planned; the [ecosystem map](https://github.com/sanctuary-ds/tokens/blob/main/docs/ecosystem.md) tracks what exists and what comes next.
+
+Created by [Anthony Portugal](https://anthonyportugal.github.io) · [Website](https://sanctuary-ds.github.io) · [Playground](https://sanctuary-ds.github.io/playground/)
