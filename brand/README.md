@@ -6,7 +6,7 @@ The mark of Sanctuary is a rose window: the window at the heart of a Gothic nave
 |------|-----|
 | `rose-spectrum.svg`, `rose-spectrum.png` | The mark on Compline stone, 1024 × 1024: organization avatar, touch icons and social cards |
 | `rose-spectrum-transparent.svg`, `rose-spectrum-transparent.png` | The mark without its square and glow, 512 × 512: favicons and READMEs, where the page supplies the background |
-| `rose.mjs` | Generator for the SVG |
+| `rose.ts`, `generate.ts` | The generator, typed against the palette |
 
 The same mark is used at every size, from the organization avatar to a 16 px favicon; the twelve petals still read as a color wheel there.
 
@@ -18,18 +18,16 @@ Every color comes from the [Sanctuary palette](https://github.com/sanctuary-ds/t
 - Glass: every pigment, toned for Compline, in hue order, ruby at the top. Petals use the `glass` role; the inner ring uses `pane`, and the outer ring alternates `pane` and `lume` of the petal beneath it.
 - Beads, hub and glow: `glass-gilt`.
 
-Two one-pigment variants remain in the generator, drawn on Vespers stone by default: `amber`, the Vespers accent in its pane, glass and lume roles, and `aureole`, the named Aureole window (gilt, amber and ember).
-
 ## Regenerating
 
-When the palette changes, regenerate the mark from the core's `dist/palette.json`:
+The generator reads the typed palette of `@sanctuary-ds/tokens`, pinned to an exact version in `package.json`, so a color role that does not exist fails `pnpm run typecheck`. To follow a new palette release, bump that version and run:
 
 ```sh
-node brand/rose.mjs path/to/palette.json spectrum --flavor compline > brand/rose-spectrum.svg
-node brand/rose.mjs path/to/palette.json spectrum --flavor compline --transparent > brand/rose-spectrum-transparent.svg
+pnpm install
+pnpm run generate
 ```
 
-Then export the PNGs with any SVG renderer, for example:
+`pnpm run check` fails when a committed SVG differs from what the palette produces, and CI runs it. It does not cover the PNGs, which are exported from the SVGs with any renderer, for example:
 
 ```sh
 rsvg-convert -w 1024 -h 1024 brand/rose-spectrum.svg -o brand/rose-spectrum.png
