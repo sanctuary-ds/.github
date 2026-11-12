@@ -1,0 +1,20 @@
+name: Proposal
+description: A change you would like, such as a token, a port or a documentation page.
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Colors, contrast and token names are defined in the core, `tokens`. A missing token is requested there.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What you want to do
+      description: The problem or the use you have in mind, before the solution.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What you propose
+      description: The change you have in mind, and any alternative you considered.
