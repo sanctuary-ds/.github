@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Report a vulnerability
+    url: https://github.com/sanctuary-ds/.github/blob/main/SECURITY.md
+    about: Security issues are reported privately, never in a public issue.
+  - name: Try the playground
+    url: https://sanctuary-ds.github.io/playground/
+    about: See every flavor, pigment and glazing live before reporting a color or contrast problem.

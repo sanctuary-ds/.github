@@ -27,7 +27,11 @@ const sector = (inner: number, outer: number, from: number, to: number): string 
 const petal = (inner: number, outer: number, at: number, half: number): string =>
   `M${polar(inner, at - half)}A${inner} ${inner} 0 0 1 ${polar(inner, at + half)}Q${polar(outer * 0.86, at + half * 0.95)} ${polar(outer, at)}Q${polar(outer * 0.86, at - half * 0.95)} ${polar(inner, at - half)}Z`;
 
-export function render({ flavor: id, transparent }: RoseOptions): string {
+/** The light that falls over the glass; the window markup refers to it as `url(#sun)`. */
+export const sunGradient = `<radialGradient id="sun"><stop offset="0" stop-color="#fff" stop-opacity=".45"/><stop offset=".55" stop-color="#fff" stop-opacity=".08"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></radialGradient>`;
+
+/** The window itself, centered on the origin and 198 units wide: frame, lead, glass, hub and light. */
+export function windowMarkup(id: FlavorId): string {
   const colors = flavors[id].colors;
   const hex = (name: ColorName): string => colors[name].hex;
   const glass = (pigment: PigmentId, role?: 'pane' | 'lume'): string =>
@@ -47,22 +51,29 @@ export function render({ flavor: id, transparent }: RoseOptions): string {
     panes.push(`<circle r="3.4" cx="${cx}" cy="${cy}" fill="${gilt}"/>`);
   }
 
+  return `<circle r="99" fill="${hex('surface-raised-3')}"/>
+  <circle r="94.5" fill="${hex('lead-came')}"/>
+  ${panes.join('\n  ')}
+  <circle r="9" fill="${gilt}"/>
+  <circle r="94.5" fill="url(#sun)" style="mix-blend-mode:soft-light"/>`;
+}
+
+export function render({ flavor: id, transparent }: RoseOptions): string {
+  const colors = flavors[id].colors;
+  const gilt = colors['glass-gilt'].hex;
+  const surface = colors.surface.hex;
   const backdrop = transparent
     ? ''
-    : `<rect x="-128" y="-128" width="256" height="256" fill="${hex('surface')}"/>
+    : `<rect x="-128" y="-128" width="256" height="256" fill="${surface}"/>
   <circle r="124" fill="url(#glow)"/>
   `;
 
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="-128 -128 256 256" width="1024" height="1024">
   <defs>
-    <radialGradient id="glow"><stop offset="0.55" stop-color="${gilt}" stop-opacity="0.45"/><stop offset="1" stop-color="${hex('surface')}" stop-opacity="0"/></radialGradient>
-    <radialGradient id="sun"><stop offset="0" stop-color="#fff" stop-opacity=".45"/><stop offset=".55" stop-color="#fff" stop-opacity=".08"/><stop offset="1" stop-color="#000" stop-opacity=".3"/></radialGradient>
+    <radialGradient id="glow"><stop offset="0.55" stop-color="${gilt}" stop-opacity="0.45"/><stop offset="1" stop-color="${surface}" stop-opacity="0"/></radialGradient>
+    ${sunGradient}
   </defs>
-  ${backdrop}<circle r="99" fill="${hex('surface-raised-3')}"/>
-  <circle r="94.5" fill="${hex('lead-came')}"/>
-  ${panes.join('\n  ')}
-  <circle r="9" fill="${gilt}"/>
-  <circle r="94.5" fill="url(#sun)" style="mix-blend-mode:soft-light"/>
+  ${backdrop}${windowMarkup(id)}
 </svg>
 `;
 }

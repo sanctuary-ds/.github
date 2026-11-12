@@ -6,7 +6,8 @@ The mark of Sanctuary is a rose window: the window at the heart of a Gothic nave
 |------|-----|
 | `rose-spectrum.svg`, `rose-spectrum.png` | The mark on Compline stone, 1024 × 1024: organization avatar, touch icons and social cards |
 | `rose-spectrum-transparent.svg`, `rose-spectrum-transparent.png` | The mark without its square and glow, 512 × 512: favicons and READMEs, where the page supplies the background |
-| `rose.ts`, `generate.ts` | The generator, typed against the palette |
+| `banner.svg` | The animated banner of the organization profile: the rose turning, with lines that type themselves out and the creator's credit |
+| `rose.ts`, `banner.ts`, `generate.ts` | The generator, typed against the palette |
 
 The same mark is used at every size, from the organization avatar to a 16 px favicon; the twelve petals still read as a color wheel there.
 
@@ -26,6 +27,8 @@ The generator reads the typed palette of `@sanctuary-ds/tokens`, pinned to an ex
 pnpm install
 pnpm run generate
 ```
+
+The banner moves only where `prefers-reduced-motion` allows it, and it is an image because GitHub strips CSS and scripts from a README but keeps the animation of an SVG loaded with `<img>`. Its lines and credit are set in `profileBanner` in `banner.ts`.
 
 `pnpm run check` fails when a committed SVG differs from what the palette produces, and CI runs it. It does not cover the PNGs, which are exported from the SVGs with any renderer, for example:
 
