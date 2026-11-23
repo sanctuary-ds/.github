@@ -31,7 +31,7 @@
     "typecheck": "tsc"
   },
   "devDependencies": {
-    "@sanctuary-ds/tokens": "0.3.2",
+    "@sanctuary-ds/tokens": "0.4.0",
     "@types/node": "24.19.2",
     "typescript": "7.0.2"
   }
