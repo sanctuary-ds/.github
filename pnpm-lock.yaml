@@ -167,8 +167,8 @@ importers:
   .:
     devDependencies:
       '@sanctuary-ds/tokens':
-        specifier: 0.3.2
-        version: 0.3.2
+        specifier: 0.4.0
+        version: 0.4.0
       '@types/node':
         specifier: 24.19.2
         version: 24.19.2
@@ -181,8 +181,8 @@ importers:
 
 packages:
 
-  '@sanctuary-ds/tokens@0.3.2':
-    resolution: {integrity: sha512-cdDJ2yfIpnvyuAAzX+zEwhu53By2EjLNAti5jDgWGE0brA6RCOmpIQn2MFu9ccg9Pv7iI24uSucAo3CDVAOVkQ==}
+  '@sanctuary-ds/tokens@0.4.0':
+    resolution: {integrity: sha512-FDba+s9mYjmL+VBYS6B2qlS1Lebe8JRniC9pgE3d0DbuqVQfbHkRcw18ylWrKSmmm/Mf5JQKwFWI2+qaZUE2Xw==}
 
   '@types/node@24.19.2':
     resolution: {integrity: sha512-93d49wCWJkCyN87MxLpNN6KXPCwFw7bVUg79mGUV1OS40JGWwVCr8n61DXCSqz7CV6/VfPkb7xec7uP2M+QHWQ==}
@@ -414,6 +414,28 @@ packages:
           targets:
             - cpu: x64
               os: win32
+        - resolution:
+            archive: tarball
+            bin:
+              node: bin/node
+            integrity: sha256-JIyWqE9sgzhka5/XO/ElEkZ4+PsI218jAj9GIFXg7tw=
+            type: binary
+            url: https://unofficial-builds.nodejs.org/download/release/v24.22.3/node-v24.22.3-linux-arm64-musl.tar.gz
+          targets:
+            - cpu: arm64
+              os: linux
+              libc: musl
+        - resolution:
+            archive: tarball
+            bin:
+              node: bin/node
+            integrity: sha256-LbT4pAq+X1tdEZlkIj/tycTHxefGMpAa6GCvUix4RLI=
+            type: binary
+            url: https://unofficial-builds.nodejs.org/download/release/v24.22.3/node-v24.22.3-linux-x64-musl.tar.gz
+          targets:
+            - cpu: x64
+              os: linux
+              libc: musl
     version: 24.22.3
     hasBin: true
 
@@ -427,7 +449,7 @@ packages:
 
 snapshots:
 
-  '@sanctuary-ds/tokens@0.3.2': {}
+  '@sanctuary-ds/tokens@0.4.0': {}
 
   '@types/node@24.19.2':
     dependencies:
